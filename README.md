@@ -16,7 +16,8 @@ This unit is taken over two semesters and parts 1 and 2 must be completed to ful
 
 [Details of assessments](https://github.com/uwacsp/CITS555X/blob/master/CITS5551Assessment.md)
 
-Submission of assessments should be done through the LMS
+Documents and videos (or links to the videos if hosted on YouTube/Vimeo etc) for assessments should be on the GitHub repository. 
+Essays should be submitted through Turnitin on the LMS
 
 **Project Teams**
 
@@ -29,7 +30,8 @@ Project team details are available on the LMS
 
 [Details of assessments](https://github.com/uwacsp/CITS555X/blob/master/CITS5552Assessment.md)
 
-Submission of assessments should be done through the LMS
+Documents and videos (or links to the videos if hosted on YouTube/Vimeo etc) for assessments should be on the GitHub repository. 
+Essays should be submitted through Turnitin on the LMS
 
 **Project Teams**
 

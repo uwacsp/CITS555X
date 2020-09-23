@@ -22,6 +22,8 @@ Remember that you should be spending 10 hours a week on this unit and so the qua
 
 **Essay (30%, individual)**
 
+Due *End Week 12*
+
 The essay component will require all students to write an individual essay. The essay should be approximately 3,000 words. The essay topic is:
 
 Software (and hardware) applications can have significant implications for the end users in terms of the impacts on their  individual rights such as the right to privacy and non-discrimination and the overall functioning of society. Thinking of applications such as those created by companies like Facebook, Twitter, Google, Apple or Amazon discuss how the developers involved did not consider how their applications would be used and the unintended consequences of those applications on individuals and society as a whole. Should the developers have anticipated the the varied uses of their products and if so, what responsibility should they bear in those consequences? Does the  ACS Code of ethics have any relevance in the matter? Should their be laws or other regulations to stop this from happening in the future or do you think that the technology companies should simply provide a technological solution to any problems their software might cause?
