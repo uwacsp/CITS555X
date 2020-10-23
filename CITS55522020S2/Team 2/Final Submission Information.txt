@@ -1,0 +1,24 @@
+Final Design Submission
+
+Students:
+Michael Bleakley 21959589
+Paulus Angkodjojo 21972051
+Daniel Brown 21967293	
+Harry Brooker 21983613
+Harrison Carter-Turner 21973737
+
+Video Presentation:
+https://echo360.org.au/media/304af320-7a6f-4989-b9ec-59d63dd0a2bf/public - .mp3 included
+
+ROS Repo
+https://github.com/bleaksmb/EyeSimRos
+
+Scratch Repo
+https://github.com/bleaksmb/EyeSimScratch
+
+Eysim/VR Repo
+https://github.com/braunl/eyesimVR
+https://github.com/braunl/RobotVR
+https://github.com/braunl/RobotOcuVR
+
+All Documents Required by Submission Are stored under their respective respositories. Access Should be available to all of them, if not email 21959589@student.uwa.edu.au to gain such access
