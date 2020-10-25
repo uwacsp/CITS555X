@@ -14,7 +14,7 @@
 
 The Production website is available from this URL, sign up with any credentials:
 
-`https://the-risk-taker-platform.now.sh`
+https://the-risk-taker-platform.now.sh
 
 ---
 
@@ -22,7 +22,7 @@ The Production website is available from this URL, sign up with any credentials:
 
 You can download the source code from the repository:
 
-`https://github.com/joshqq/TheRiskTakerPlatform`
+https://github.com/joshqq/TheRiskTakerPlatform
 
 ---
 
@@ -30,7 +30,7 @@ You can download the source code from the repository:
 
 Project Video Presentation is available from YouTube as well as uploaded on Google Drive:
 
-`https://drive.google.com/file/d/1Qek2S8rAuIYQgZ2laDdtRCtgcLBMtGum/view?usp=sharing`
+https://drive.google.com/file/d/1Qek2S8rAuIYQgZ2laDdtRCtgcLBMtGum/view?usp=sharing
 
 ---
 
