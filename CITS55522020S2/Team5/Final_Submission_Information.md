@@ -34,4 +34,10 @@ https://drive.google.com/file/d/1Qek2S8rAuIYQgZ2laDdtRCtgcLBMtGum/view?usp=shari
 
 ---
 
+## User Manual
+
+The user manual is in this directory.
+
+---
+
 If you have any troubles with the files please contact us.
