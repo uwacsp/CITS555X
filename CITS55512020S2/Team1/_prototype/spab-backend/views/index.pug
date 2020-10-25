@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title SPAB - Solar Powered Autonomous Boat
+    link(rel='stylesheet', href='/stylesheets/index.css')
+    link(rel='shortcut icon', href='/images/favicon.ico')
+  body
+    div#wrapper
+      h1 The SPAB Project
+      h2 Solar Powered Autonomous Boat
+      .spacer
+      p Since 2016 SPAB has been an ongoing sub-project of 
+        a(href="https://therevproject.com", target="new") the REV Project
+        | .
+        br
+        | Note that this is a temporary landing page while we focus on delivering SPAB's core functionality.
+    
+    form#login-panel(action='/account', method='post')
+      h3 Login to SPAB
+      input(type="text", name="username", placeholder="Username")
+      input(type="text", name="password", placeholder="Password")
+      input(type="button", value="Login", onclick='window.location.href=\'/dashboard\'')
