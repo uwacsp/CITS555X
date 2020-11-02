@@ -1,0 +1,351 @@
+<style>
+    .ol-zoom {
+        left: .5em;
+    }
+
+    .ol-full-screen {
+        top: 80px;
+        left: .5em;
+        right: unset;
+    }
+
+    .ol-attribution {
+        left: .5em;
+        right: unset;
+    }
+
+    .good-cond-text {
+        color: #119c29;
+    }
+
+    .warn-cond-text {
+        color: #c9b60f;
+    }
+
+    .bad-cond-text {
+        color: #9c1129;
+    }
+
+    .fullscreen-map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .dashboard-card-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .dashboard-card-layout {
+        background-color: rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap-reverse;
+        width: 344px;
+        padding-right: 8px;
+        height: 100%;
+        min-height: 620px;
+    }
+
+    .card-body>.dashboard-sensor-item:nth-child(even) {
+        background-color: #efefef;
+    }
+
+    .dashboard-card {
+        width: 160px;
+        display: inline-block;
+        margin: 8px 0px 0px 8px !important;
+        overflow: hidden;
+    }
+
+    .dashboard-card>.card-header {
+        padding: 0 0 0 8px;
+        font-size: 13px;
+        line-height: 24px;
+        font-weight: 800;
+    }
+
+    .dashboard-card>.card-body {
+        padding: 0;
+        font-size: 13px;
+        padding-bottom: 0px;
+    }
+    .dashboard-card>.card-body>.btn {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+
+    .dashboard-cam-preview {
+        position: relative;
+        margin: 4px;
+    }
+
+    .dashboard-cam-preview>img {
+        width: 100%;
+    }
+
+    .dashboard-cam-preview>.title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        line-height: 24px;
+        padding-bottom: 6px;
+        font-size: 11px;
+        text-transform: uppercase;
+        padding-left: 6px;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.6);
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    .dashboard-sensor-item {
+        padding: 4px 8px;
+    }
+
+    .dashboard-sensor-item>.title {
+        font-weight: 500;
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .dashboard-sensor-item>.value {
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        line-height: 12px;
+        padding: 2px;
+    }
+
+    .dashboard-sensor-item>.value>* {
+        flex: 100%;
+    }
+
+    .dashboard-sensor-item>.value .desc {
+        font-size: 11px;
+        font-weight: 500;
+        padding-top: 4px;
+    }
+
+    .dashboard-imu-legend {
+        text-align: center;
+    }
+
+    .dashboard-imu-legend>div {
+        display: inline-block;
+        padding: 4px;
+        margin: 2px;
+        line-height: 10px;
+        font-size: 10px;
+        font-weight: 500;
+        color: #fff;
+        border-radius: 4px;
+        text-transform: uppercase;
+    }
+
+    .dashboard-imu-legend>div.x {
+        background-color: #9c1129;
+    }
+
+    .dashboard-imu-legend>div.y {
+        background-color: #119c29;
+    }
+
+    .dashboard-imu-legend>div.z {
+        background-color: #29119c;
+    }
+
+    .dashboard-card-graph {}
+
+    .dashboard-card-graph>.title {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+    .dashboard-card-graph>.graph {
+        height: 60px;
+        margin-left: -8px;
+        margin-right: -8px;
+        margin-bottom: -4px;
+        background-color: #000;
+    }
+</style>
+
+<div id="main" class="fullscreen-map">
+    <div id="map" class="fullscreen-map"></div>
+    <div class="dashboard-card-container">
+        <div class="dashboard-card-layout">
+            <div class="card bg-light mb-3 dashboard-card">
+                <div class="card-header">Camera</div>
+                <div class="card-body">
+                    <div class="dashboard-cam-preview">
+                        <img src="./assets/img/cam1.png">
+                        <div class="title">
+                            Camera 1
+                        </div>
+                    </div>
+                    <div class="dashboard-cam-preview">
+                        <img src="./assets/img/cam2.png">
+                        <div class="title">
+                            Camera 2
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-light mb-3 dashboard-card">
+                <div class="card-header">Power</div>
+                <div class="card-body">
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Voltage
+                        </div>
+                        <div class="value">
+                            <span class="good-cond-text">12.0V</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Current
+                        </div>
+                        <div class="value">
+                            <div class="good-cond-text" style="flex: 50%;">
+                                <span>0.5A</span><br>
+                                <span style="font-size: 10px;">CHARGE</span>
+                            </div>
+                            <div class="bad-cond-text" style="flex: 50%;">
+                                <span>1.0A</span><br>
+                                <span style="font-size: 10px;">DISCHARGE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Battery
+                        </div>
+                        <div class="value">
+                            <div>
+                                <span class="good-cond-text">80%</span>
+                                <div class="desc" style="padding-bottom: 2px;">Est. Flight Time:</div>
+                                <div style="font-size:11px;">120 mins</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-light mb-3 dashboard-card">
+                <div class="card-header">GPS</div>
+                <div class="card-body">
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Location
+                        </div>
+                        <div class="value">
+                            <span style="font-size:11px;">-31.653381, 111.233890</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Speed
+                        </div>
+                        <div class="value">
+                            <span>20.05 km/h</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Next Destination
+                        </div>
+                        <div class="value">
+                            <div>
+                                <span>Point A</span>
+                                <div class="desc" style="padding-bottom: 2px;">Est. Arrival:</div>
+                                <div style="font-size:11px;">25 mins</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-light mb-3 dashboard-card">
+                <div class="card-header">Sensor</div>
+                <div class="card-body">
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Temperature
+                        </div>
+                        <div class="value">
+                            <span>{{sensorData.temp}}°C</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Salinity
+                        </div>
+                        <div class="value">
+                            <span>{{sensorData.salinity}}g/mL</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Other Sensor 1
+                        </div>
+                        <div class="value">
+                            <span>{{sensorData.sensor1}}</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="title">
+                            Other Sensor 2
+                        </div>
+                        <div class="value">
+                            <span>{{sensorData.sensor2}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-light mb-3 dashboard-card">
+                <div class="card-header">IMU</div>
+                <div class="card-body">
+                    <div class="dashboard-sensor-item">
+                        <div class="dashboard-imu-legend">
+                            <div class="x">X AXIS</div>
+                            <div class="y">Y AXIS</div>
+                            <div class="z">Z AXIS</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="dashboard-card-graph">
+                            <div class="title">Accelerometer</div>
+                            <div class="graph"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-sensor-item">
+                        <div class="dashboard-card-graph">
+                            <div class="title">Gyroscope</div>
+                            <div class="graph"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-light mb-3 dashboard-card">
+                <div class="card-body" style="padding-top: 4px;padding-left: 4px;padding-right: 4px;">
+                    <button type="button" class="btn btn-primary btn-sm">Mission Planner</button>
+                    <button type="button" class="btn btn-primary btn-sm">Manual Control</button>
+                    <button type="button" class="btn btn-primary btn-sm">System Log</button>
+                    <button type="button" class="btn btn-primary btn-sm">Boat Location</button>
+                    <button type="button" class="btn btn-primary btn-sm">User Location</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

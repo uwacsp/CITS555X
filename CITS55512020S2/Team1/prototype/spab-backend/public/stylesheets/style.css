@@ -1,0 +1,13 @@
+body {
+  padding: 40px;
+  font: 14px "Segoe UI", Helvetica, Arial, sans-serif;
+  background-color: whitesmoke;
+}
+
+a {
+  color: #00B7FF;
+}
+
+a:visited{
+  color: mediumslateblue;
+}
