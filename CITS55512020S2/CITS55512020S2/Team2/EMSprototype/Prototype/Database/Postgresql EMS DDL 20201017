@@ -1,0 +1,429 @@
+-- Drop table
+
+-- DROP TABLE public.ems_attribute_mapping_table;
+
+CREATE TABLE public.ems_attribute_mapping_table (
+	attribute_name_ext varchar(60) NOT NULL,
+	attribute_id int4 NOT NULL,
+	CONSTRAINT ems_attribute_mapping_table_pk PRIMARY KEY (attribute_name_ext),
+	CONSTRAINT ems_attribute_mapping_table_fk FOREIGN KEY (attribute_id) REFERENCES ems_attribute_table(attribute_id)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83048" ON public.ems_attribute_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83048"
+    AFTER INSERT
+    ON public.ems_attribute_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83049" ON public.ems_attribute_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83049"
+    AFTER INSERT
+    ON public.ems_attribute_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83093" ON public.ems_attribute_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83093"
+    AFTER INSERT
+    ON public.ems_attribute_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83094" ON public.ems_attribute_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83094"
+    AFTER INSERT
+    ON public.ems_attribute_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- Drop table
+
+-- DROP TABLE public.ems_attribute_table;
+
+CREATE TABLE public.ems_attribute_table (
+	attribute_id serial NOT NULL,
+	attribute_name varchar(60) NOT NULL,
+	unit varchar(60) NULL,
+	CONSTRAINT ems_attribute_table_pk PRIMARY KEY (attribute_id)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83014" ON public.ems_attribute_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83014"
+    AFTER INSERT
+    ON public.ems_attribute_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83015" ON public.ems_attribute_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83015"
+    AFTER INSERT
+    ON public.ems_attribute_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83046" ON public.ems_attribute_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83046"
+    AFTER INSERT
+    ON public.ems_attribute_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83047" ON public.ems_attribute_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83047"
+    AFTER INSERT
+    ON public.ems_attribute_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- Drop table
+
+-- DROP TABLE public.ems_combination_table;
+
+CREATE TABLE public.ems_combination_table (
+	comb_id serial NOT NULL,
+	device_id int4 NOT NULL,
+	attribute_id int4 NOT NULL,
+	CONSTRAINT ems_combination_table_pk PRIMARY KEY (comb_id),
+	CONSTRAINT ems_combination_table_fk FOREIGN KEY (device_id) REFERENCES ems_device_table(device_id),
+	CONSTRAINT ems_combination_table_fk_1 FOREIGN KEY (attribute_id) REFERENCES ems_attribute_table(attribute_id)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83011" ON public.ems_combination_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83011"
+    AFTER INSERT
+    ON public.ems_combination_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83012" ON public.ems_combination_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83012"
+    AFTER INSERT
+    ON public.ems_combination_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83016" ON public.ems_combination_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83016"
+    AFTER INSERT
+    ON public.ems_combination_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83017" ON public.ems_combination_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83017"
+    AFTER INSERT
+    ON public.ems_combination_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83059" ON public.ems_combination_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83059"
+    AFTER INSERT
+    ON public.ems_combination_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83060" ON public.ems_combination_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83060"
+    AFTER INSERT
+    ON public.ems_combination_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- Drop table
+
+-- DROP TABLE public.ems_device_mapping_table;
+
+CREATE TABLE public.ems_device_mapping_table (
+	device_name_ext varchar(60) NOT NULL,
+	device_id int4 NOT NULL,
+	CONSTRAINT ems_device_mapping_table_pk PRIMARY KEY (device_name_ext),
+	CONSTRAINT ems_device_mapping_table_fk FOREIGN KEY (device_id) REFERENCES ems_device_table(device_id)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83038" ON public.ems_device_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83038"
+    AFTER INSERT
+    ON public.ems_device_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83039" ON public.ems_device_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83039"
+    AFTER INSERT
+    ON public.ems_device_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83098" ON public.ems_device_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83098"
+    AFTER INSERT
+    ON public.ems_device_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83099" ON public.ems_device_mapping_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83099"
+    AFTER INSERT
+    ON public.ems_device_mapping_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- Drop table
+
+-- DROP TABLE public.ems_device_table;
+
+CREATE TABLE public.ems_device_table (
+	device_id serial NOT NULL,
+	device_name varchar(60) NOT NULL,
+	pvsystem varchar(60) NULL,
+	CONSTRAINT ems_device_table_pk PRIMARY KEY (device_id)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83009" ON public.ems_device_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83009"
+    AFTER INSERT
+    ON public.ems_device_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83010" ON public.ems_device_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83010"
+    AFTER INSERT
+    ON public.ems_device_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83036" ON public.ems_device_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83036"
+    AFTER INSERT
+    ON public.ems_device_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83037" ON public.ems_device_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83037"
+    AFTER INSERT
+    ON public.ems_device_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+-- Drop table
+
+-- DROP TABLE public.ems_transaction_ext_table;
+
+CREATE TABLE public.ems_transaction_ext_table (
+	trans_ext_id bigserial NOT NULL,
+	"Timestamp" timestamp(0) NOT NULL,
+	value float4 NULL,
+	device_name_ext varchar(60) NOT NULL,
+	attribute_name_ext varchar(60) NOT NULL,
+	trans_id int8 NULL,
+	CONSTRAINT ems_transaction_ext_table_pk PRIMARY KEY (trans_ext_id),
+	CONSTRAINT ems_transaction_ext_table_fk FOREIGN KEY (attribute_name_ext) REFERENCES ems_attribute_mapping_table(attribute_name_ext),
+	CONSTRAINT ems_transaction_ext_table_fk2 FOREIGN KEY (trans_id) REFERENCES ems_transaction_table(trans_id),
+	CONSTRAINT ems_transaction_ext_table_fk_1 FOREIGN KEY (device_name_ext) REFERENCES ems_device_mapping_table(device_name_ext)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83095" ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83095"
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83096" ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83096"
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83100" ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83100"
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83101" ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83101"
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83105" ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83105"
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83106" ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83106"
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER ems_transaction_ext_table_trigger ON public.ems_transaction_ext_table;
+
+CREATE TRIGGER ems_transaction_ext_table_trigger
+    AFTER INSERT
+    ON public.ems_transaction_ext_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE public.ems_transaction_table_insert();
+
+-- Drop table
+
+-- DROP TABLE public.ems_transaction_table;
+
+CREATE TABLE public.ems_transaction_table (
+	trans_id bigserial NOT NULL,
+	comb_id int4 NOT NULL,
+	"Timestamp" timestamp(0) NOT NULL,
+	value float4 NULL,
+	CONSTRAINT ems_transaction_table_pk PRIMARY KEY (trans_id),
+	CONSTRAINT ems_transaction_table_fk FOREIGN KEY (comb_id) REFERENCES ems_combination_table(comb_id)
+);
+
+-- Table Triggers
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83061" ON public.ems_transaction_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83061"
+    AFTER INSERT
+    ON public.ems_transaction_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_ins"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83062" ON public.ems_transaction_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83062"
+    AFTER INSERT
+    ON public.ems_transaction_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_check_upd"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83103" ON public.ems_transaction_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83103"
+    AFTER INSERT
+    ON public.ems_transaction_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_del"();
+
+-- DROP TRIGGER "RI_ConstraintTrigger_83104" ON public.ems_transaction_table;
+
+CREATE TRIGGER "RI_ConstraintTrigger_83104"
+    AFTER INSERT
+    ON public.ems_transaction_table
+    FOR EACH ROW
+        EXECUTE PROCEDURE pg_catalog."RI_FKey_noaction_upd"();
+
+CREATE OR REPLACE VIEW public.ems_transaction_view
+AS SELECT ems_transaction_table.trans_id, ems_device_table.pvsystem, ems_device_table.device_name, ems_attribute_table.attribute_name, ems_attribute_table.unit, ems_transaction_table."Timestamp", ems_transaction_table.value
+   FROM ems_transaction_table, ems_combination_table, ems_attribute_table, ems_device_table
+  WHERE ems_transaction_table.comb_id = ems_combination_table.comb_id AND ems_combination_table.device_id = ems_device_table.device_id AND ems_combination_table.attribute_id = ems_attribute_table.attribute_id;
+
+CREATE OR REPLACE FUNCTION public.ems_transaction_table_insert()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+DECLARE
+        comb_id_local int4;
+begin
+	
+	select ect.comb_id into comb_id_local
+	from ems_combination_table ect, ems_device_table edt, ems_attribute_table eat, ems_attribute_mapping_table eamt, ems_device_mapping_table edmt 
+	where ect.attribute_id = eat.attribute_id and ect.device_id = edt.device_id and eat.attribute_id = eamt.attribute_id and edt.device_id = edmt.device_id 
+	and edmt.device_name_ext = new.device_name_ext and eamt.attribute_name_ext = new.attribute_name_ext;
+
+    INSERT INTO
+        EMS_Transaction_Table(comb_id,"Timestamp",value)
+        VALUES(comb_id_local,new."Timestamp",new.value);
+     
+    update ems_transaction_ext_table 
+    set trans_id = currval('ems_transaction_table_trans_id_seq')
+    where trans_ext_id = new.trans_ext_id;
+       
+    RETURN new;	
+  END $function$
+;
+
+-- DROP SEQUENCE public.ems_attribute_table_attribute_id_seq;
+
+CREATE SEQUENCE public.ems_attribute_table_attribute_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807;
+
+-- DROP SEQUENCE public.ems_combination_table_comb_id_seq;
+
+CREATE SEQUENCE public.ems_combination_table_comb_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807;
+
+-- DROP SEQUENCE public.ems_device_table_device_id_seq;
+
+CREATE SEQUENCE public.ems_device_table_device_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807;
+
+-- DROP SEQUENCE public.ems_transaction_ext_table_trans_ext_id_seq;
+
+CREATE SEQUENCE public.ems_transaction_ext_table_trans_ext_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807;
+
+-- DROP SEQUENCE public.ems_transaction_table_trans_id_seq;
+
+CREATE SEQUENCE public.ems_transaction_table_trans_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807;
